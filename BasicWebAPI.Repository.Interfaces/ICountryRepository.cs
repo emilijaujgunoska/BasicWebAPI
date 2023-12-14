@@ -15,6 +15,8 @@ namespace BasicWebAPI.Repository.Interfaces
 
         void Delete(Country country);
 
+        Country GetCountryById(int countryId);
+
         IEnumerable<Country> GetAllCountries();
     }
 }

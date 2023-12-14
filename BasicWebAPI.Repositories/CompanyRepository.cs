@@ -41,5 +41,15 @@ namespace BasicWebAPI.Repositories
             _context.Companies.Update(company);
             _context.SaveChanges();
         }
+        public Company GetCompanyById(int companyId)
+        {
+            var result = _context.Companies.FirstOrDefault(c => c.CompanyId == companyId);
+            return result;
+        }
+
+        Company ICompanyRepository.GetCompanyById(int companyId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

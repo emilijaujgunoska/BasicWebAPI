@@ -13,6 +13,7 @@ namespace BasicWebAPI.Service.Interfaces
         void Create(Company company);
         void Update(Company company);
         void Delete(Company company);
+        Company GetCompanyById(int companyId);
 
         IEnumerable<Company> GetAllCompanies();
 

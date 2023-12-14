@@ -41,6 +41,12 @@ namespace BasicWebAPI.Services
             return result;
         }
 
+        public Contact GetContactById(int contactId)
+        {
+            var result = _contactRepository.GetContactById(contactId);
+            return result;
+        }
+
         public IEnumerable<Contact> GetContactsWithCompanyAndCountry(string companyName, string countryName)
         {
             var result = _contactRepository.GetContactsWithCompanyAndCountry(companyName, countryName);

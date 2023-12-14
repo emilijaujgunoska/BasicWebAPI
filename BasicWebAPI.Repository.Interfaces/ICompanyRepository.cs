@@ -13,6 +13,8 @@ namespace BasicWebAPI.Repository.Interfaces
         void Update(Company company);
         void Delete(Company company);
 
+       Company GetCompanyById(int companyId);
+
         IEnumerable<Company> GetAllCompanies();
     }
 }

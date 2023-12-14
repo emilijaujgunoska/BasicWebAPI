@@ -30,10 +30,18 @@ namespace BasicWebAPI.Repositories
             _context.SaveChanges();
         }
 
+        
+
         public IEnumerable<Country> GetAllCountries()
         {
             var result = _context.Countries.AsEnumerable();
             return result;
+        }
+
+        public Country GetCountryById(int countryId)
+        {
+            var result = _context.Countries.FirstOrDefault(c => c.CountryId == countryId);
+             return result;
         }
 
         public void Update(Country country)
@@ -41,5 +49,7 @@ namespace BasicWebAPI.Repositories
             _context.Countries.Update(country);
             _context.SaveChanges();
         }
+
+        
     }
 }
