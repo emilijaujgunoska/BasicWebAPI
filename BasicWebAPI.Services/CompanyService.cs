@@ -35,6 +35,12 @@ namespace BasicWebAPI.Services
             return result;
         }
 
+        public Company GetCompanyById(int companyId)
+        {
+            var result = _companyRepository.GetCompanyById(companyId);
+            return result;
+        }
+
         public void Update(Company company)
         {
             _companyRepository.Update(company);

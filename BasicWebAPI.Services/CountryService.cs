@@ -35,6 +35,12 @@ namespace BasicWebAPI.Services
 
         }
 
+        public Country GetCountryById(int countryId)
+        {
+           var result = _countryRepository.GetCountryById(countryId);
+            return result;
+        }
+
         public void Update(Country country)
         {
             _countryRepository.Update(country);
