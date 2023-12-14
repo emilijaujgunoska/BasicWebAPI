@@ -3,6 +3,7 @@ using BasicWebAPI.Entities;
 using BasicWebAPI.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,8 @@ namespace BasicWebAPI.Repositories
 
         public IEnumerable<Contact> FilterContacts(int countryId, int companyId)
         {
-            
+            return _context.Contacts
+                .Where(c=> c.CountryId == countryId && c.CompanyId == companyId).ToList();
         }
 
         public IEnumerable<Contact> GetAllContacts()
@@ -40,15 +42,21 @@ namespace BasicWebAPI.Repositories
             return result;
         }
 
-        public Contact GetContactsWithCompanyAndCountry(string companyName, string countryName)
+        public IEnumerable<Contact> GetContactsWithCompanyAndCountry(string companyName, string countryName)
         {
-            throw new NotImplementedException();
+            return _context.Contacts
+             .Where(b => b.CompanyName == companyName && b.CountryName == countryName).ToList();
         }
 
         public void Update(Contact contact)
         {
             _context.Contacts.Update(contact);
             _context.SaveChanges();
+        }
+
+        IEnumerable<Contact> IContactRepository.GetContactsWithCompanyAndCountry(string companyName, string countryName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

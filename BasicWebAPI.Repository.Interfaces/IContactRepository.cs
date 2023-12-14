@@ -15,7 +15,7 @@ namespace BasicWebAPI.Repository.Interfaces
 
         void Delete(Contact contact);
 
-        Contact GetContactsWithCompanyAndCountry(string companyName, string countryName);
+        IEnumerable<Contact> GetContactsWithCompanyAndCountry(string companyName, string countryName);
     
         IEnumerable<Contact> GetAllContacts();    
         
